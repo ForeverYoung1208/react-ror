@@ -61,3 +61,14 @@ gem 'jquery-rails'
 
 gem "react-rails"
 gem 'haml'
+
+
+
+# You can either add Webpacker during setup of a new Rails 5.1+ application using new --webpack option:
+# # Available Rails 5.1+
+# rails new myapp --webpack
+# Or add it to your Gemfile:
+# # Gemfile
+# gem 'webpacker', '~> 3.0'
+# # OR if you prefer to use master
+# gem 'webpacker', git: 'https://github.com/rails/webpacker.git'

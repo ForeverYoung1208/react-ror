@@ -31,7 +31,11 @@ var Appointments = createReactClass({
 		var appointments = $.extend(true,[],this.state.appointments)
 		console.log(appointments)
 		appointments.push(appointment)
-		this.setState({ appointments: appointments })
+		this.setState({ 
+			appointments: appointments.sort(function(a,b){
+				return new Date(a.appt_time) - new Date(b.appt_time);
+			}) 
+		});
 
 
 	},
@@ -40,8 +44,8 @@ var Appointments = createReactClass({
 	render: function(){
 		return (
 			<div>
-				<AppointmentForm input_title={this.state.title} 
-					input_appt_time={this.state.appt_time} 
+				<AppointmentForm title={this.state.title} 
+					appt_time={this.state.appt_time} 
 					onUserInput={this.handleUserInput} 
 					onFormSubmit={this.handleFormSubmit}/>
 				<AppointmentsList appointments={this.state.appointments} />
