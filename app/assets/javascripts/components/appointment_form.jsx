@@ -5,12 +5,16 @@ var AppointmentForm = createReactClass({
     obj[name] = e.target.value;
     this.props.onUserInput(obj);    
   },
+  handleSubmit: function(e){
+    e.preventDefault();
+    this.props.onFormSubmit();
+  },
 
 	render: function(){
 		return(
       <div>
         <h2>Make a new appointment</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input name='title' placeholder='Appointment Title' 
             value={this.props.input_title} 
             onChange={this.handleChange}
